@@ -9,47 +9,48 @@ export function activate(context: vscode.ExtensionContext) {
         async () => {
             const editor = vscode.window.activeTextEditor;
 
+            // If an editor is open
             if (editor) {
                 const document = editor.document;
-                let languageSupported = false;
                 let docstring: string | Array<MultipleFormats> = '';
 
                 // Check if the language is supported
                 for (const language of languages) {
+                    // Supports an array of IDs for languages with the same docstring
                     if (Array.isArray(language.id)) {
                         for (const id of language.id) {
                             if (id === document.languageId) {
-                                languageSupported = true;
                                 docstring = language.docstring;
                             }
                         }
                     } else {
                         if (language.id === document.languageId) {
-                            languageSupported = true;
                             docstring = language.docstring;
                         }
                     }
                 }
 
-                if (languageSupported) {
+                // If a docstring was found
+                if (docstring) {
                     let output: string;
 
+                    // If the docstring is an object, create a menu to select an element
                     if (typeof docstring === 'string') {
                         output = docstring;
                     } else {
-                        // TODO: Menu to select different types
-                        let choice = await vscode.window.showQuickPick(
-                            docstring.map((entry) => entry.name)
+                        const choice = await vscode.window.showQuickPick(
+                            docstring.map((element) => element.name)
                         );
 
                         if (choice) {
-                            docstring.forEach((entry) => {
-                                if (entry.name === choice)
-                                    output = entry.docstring;
+                            docstring.forEach((element) => {
+                                if (element.name === choice)
+                                    output = element.docstring;
                             });
                         } else return;
                     }
 
+                    // If text is selected, replace it, otherwise insert
                     if (editor.selection.isEmpty) {
                         editor.edit((editBuilder) =>
                             editBuilder.insert(editor.selection.active, output)
