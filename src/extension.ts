@@ -62,7 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
                     }
                 } else {
                     vscode.window.showErrorMessage(
-                        'Docstring generation is not yet supported for this language.'
+                        'Docstring generation is not supported for this language.'
                     );
                 }
             }
