@@ -27,9 +27,18 @@ export function activate(context: vscode.ExtensionContext) {
                 }
 
                 if (docstring) {
-                    editor.edit((editBuilder) =>
-                        editBuilder.insert(editor.selection.active, docstring)
-                    );
+                    if (editor.selection.isEmpty) {
+                        editor.edit((editBuilder) =>
+                            editBuilder.insert(
+                                editor.selection.active,
+                                docstring
+                            )
+                        );
+                    } else {
+                        editor.edit((editBuilder) =>
+                            editBuilder.replace(editor.selection, docstring)
+                        );
+                    }
                 } else {
                     vscode.window.showInformationMessage(
                         'Docstring generation is not yet supported for this language.'
