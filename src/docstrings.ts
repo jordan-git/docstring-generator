@@ -10,6 +10,25 @@ interface Docstrings {
 }
 
 const docstrings: Docstrings = {
+    cpp: [
+        {
+            name: 'Class',
+            docstring: dedent(`/**
+                                * One-line description of the class
+                                *
+                                * Paragraph describing the class
+                                */`),
+        },
+        {
+            name: 'Function/Method',
+            docstring: dedent(`/**
+                                * Description of the function/method
+                                *
+                                * @param <param> Description of the parameter
+                                * @return Description of the return value
+                                */`),
+        },
+    ],
     java: [
         {
             name: 'Class',
@@ -81,6 +100,10 @@ const docstrings: Docstrings = {
 };
 
 const supportedLanguages = [
+    {
+        id: 'cpp',
+        docstring: docstrings.cpp,
+    },
     {
         id: 'python',
         docstring: docstrings.python,
