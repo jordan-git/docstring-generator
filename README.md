@@ -6,4 +6,4 @@ This extension allows you to run a simple command called "Generate Docstring" to
 
 ### 0.1.0
 
-Initial alpha version. Supports TypeScript and Python.
+Initial alpha version. Basic support for C++, Java, JavaScript, Python and TypeScript

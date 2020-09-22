@@ -50,6 +50,12 @@ const docstrings: Docstrings = {
                                 */`),
         },
     ],
+    javascript: dedent(`/**
+                        * Description of the function/method.
+                        *
+                        * @param {type} <param> - Description of the parameter
+                        * @returns {type} Description of what the function/method returns
+                        */`),
     python: [
         {
             name: 'Module',
@@ -105,16 +111,20 @@ const supportedLanguages = [
         docstring: docstrings.cpp,
     },
     {
+        id: 'java',
+        docstring: docstrings.java,
+    },
+    {
+        id: ['javascript', 'javascriptreact'],
+        docstring: docstrings.javascript,
+    },
+    {
         id: 'python',
         docstring: docstrings.python,
     },
     {
         id: ['typescript', 'typescriptreact'],
         docstring: docstrings.typescript,
-    },
-    {
-        id: 'java',
-        docstring: docstrings.java,
     },
 ];
 
