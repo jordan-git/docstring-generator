@@ -10,15 +10,27 @@ interface Docstrings {
 }
 
 const docstrings: Docstrings = {
-    typescript: dedent(`/**
-                        * Description of the function.
-                        *
-                        * @remarks
-                        * Any remarks you have about the function.
-                        *
-                        * @param <param> - Description of the parameter
-                        * @returns Description of what the function returns
-                        */`),
+    java: [
+        {
+            name: 'Class',
+            docstring: dedent(`/**
+                                * Description of the class
+                                *
+                                * @author <author_name>
+                                * @version 1.0
+                                * @since YYYY-MM-DD
+                                */`),
+        },
+        {
+            name: 'Method',
+            docstring: dedent(`/**
+                                * Description of the method
+                                *
+                                * @param <param> Description of the parameter
+                                * @return Description of the return value
+                                */`),
+        },
+    ],
     python: [
         {
             name: 'Module',
@@ -46,8 +58,8 @@ const docstrings: Docstrings = {
                                """`),
         },
         {
-            name: 'Function',
-            docstring: dedent(`"""Description of the function.
+            name: 'Function/Method',
+            docstring: dedent(`"""Description of the function/method.
 
                                Parameters:
                                    <param>: Description of the parameter
@@ -57,6 +69,15 @@ const docstrings: Docstrings = {
                                """`),
         },
     ],
+    typescript: dedent(`/**
+                        * Description of the function/method.
+                        *
+                        * @remarks
+                        * Any remarks you have about the function/method.
+                        *
+                        * @param <param> - Description of the parameter
+                        * @returns Description of what the function/method returns
+                        */`),
 };
 
 const supportedLanguages = [
@@ -67,6 +88,10 @@ const supportedLanguages = [
     {
         id: ['typescript', 'typescriptreact'],
         docstring: docstrings.typescript,
+    },
+    {
+        id: 'java',
+        docstring: docstrings.java,
     },
 ];
 
