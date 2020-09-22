@@ -1,13 +1,23 @@
 {
     "name": "docstring-generator",
     "displayName": "Docstring Generator",
-    "description": "",
-    "version": "0.0.1",
+    "description": "Generate a template for your documentation comments by running a single command!",
+    "version": "0.1.0",
+    "publisher": "Jordan Q",
+    "license": "SEE LICENSE IN LICENSE.md",
     "engines": {
         "vscode": "^1.49.0"
     },
     "categories": [
+        "Snippets",
         "Other"
+    ],
+    "keywords": [
+        "docstring",
+        "generator",
+        "comment",
+        "document",
+        "documentation"
     ],
     "activationEvents": [
         "onCommand:docstring-generator.generateDocstring"
@@ -44,5 +54,12 @@
     },
     "dependencies": {
         "ts-dedent": "^1.1.1"
+    },
+    "bugs": {
+        "url": "https://github.com/jordan-git/docstring-generator/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jordan-git/docstring-generator"
     }
 }
