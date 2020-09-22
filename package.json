@@ -17,7 +17,7 @@
         "commands": [
             {
                 "command": "docstring-generator.generateDocstring",
-                "title": "Generate docstring"
+                "title": "Generate Docstring"
             }
         ]
     },
