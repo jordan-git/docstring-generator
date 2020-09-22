@@ -1,10 +1,10 @@
-export type MultipleFormats = {
+export type LanguageData = {
     name: string;
     docstring: string;
 };
 
 interface Docstrings {
-    [language: string]: string | Array<MultipleFormats>;
+    [language: string]: string | Array<LanguageData>;
 }
 
 const docstrings: Docstrings = {

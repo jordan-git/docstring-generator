@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import languages from './languages';
-import { MultipleFormats } from './docstrings';
+import { LanguageData } from './docstrings';
 
 export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand(
@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
             // If an editor is open
             if (editor) {
                 const document = editor.document;
-                let docstring: string | Array<MultipleFormats> = '';
+                let docstring: string | Array<LanguageData> = '';
 
                 // Check if the language is supported
                 for (const language of languages) {
@@ -43,10 +43,10 @@ export function activate(context: vscode.ExtensionContext) {
                         );
 
                         if (choice) {
-                            docstring.forEach((element) => {
+                            for (const element of docstring) {
                                 if (element.name === choice)
                                     output = element.docstring;
-                            });
+                            }
                         } else return;
                     }
 
