@@ -1,12 +1,12 @@
 import dedent from 'ts-dedent';
 
-export type LanguageData = {
+export type DocstringTypes = {
     name: string;
     docstring: string;
 };
 
 interface Docstrings {
-    [language: string]: string | Array<LanguageData>;
+    [language: string]: string | Array<DocstringTypes>;
 }
 
 const docstrings: Docstrings = {
@@ -59,4 +59,15 @@ const docstrings: Docstrings = {
     ],
 };
 
-export default docstrings;
+const supportedLanguages = [
+    {
+        id: 'python',
+        docstring: docstrings.python,
+    },
+    {
+        id: ['typescript', 'typescriptreact'],
+        docstring: docstrings.typescript,
+    },
+];
+
+export default supportedLanguages;

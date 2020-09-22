@@ -1,7 +1,6 @@
 import * as vscode from 'vscode';
 
-import languages from './languages';
-import { LanguageData } from './docstrings';
+import supportedLanguages, { DocstringTypes } from './docstrings';
 
 export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand(
@@ -12,10 +11,10 @@ export function activate(context: vscode.ExtensionContext) {
             // If an editor is open
             if (editor) {
                 const document = editor.document;
-                let docstring: string | Array<LanguageData> = '';
+                let docstring: string | Array<DocstringTypes> = '';
 
                 // Check if the language is supported
-                for (const language of languages) {
+                for (const language of supportedLanguages) {
                     // Supports an array of IDs for languages with the same docstring
                     if (Array.isArray(language.id)) {
                         for (const id of language.id) {
