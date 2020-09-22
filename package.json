@@ -3,7 +3,7 @@
     "displayName": "Docstring Generator",
     "description": "Generate a template for your documentation comments by running a single command!",
     "version": "0.1.0",
-    "publisher": "TOKEN GOES HERE WHEN REQUIRED",
+    "publisher": "jordan-quinlan",
     "license": "SEE LICENSE IN LICENSE.md",
     "engines": {
         "vscode": "^1.49.0"
