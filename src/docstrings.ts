@@ -1,3 +1,5 @@
+import dedent from 'ts-dedent';
+
 export type LanguageData = {
     name: string;
     docstring: string;
@@ -8,51 +10,51 @@ interface Docstrings {
 }
 
 const docstrings: Docstrings = {
-    typescript: `/**
- * Description of the function.
- *
- * @remarks
- * Any remarks you have about the function.
- *
- * @param <param> - Description of the parameter
- * @returns Description of what the function returns
- */`,
+    typescript: dedent(`/**
+                        * Description of the function.
+                        *
+                        * @remarks
+                        * Any remarks you have about the function.
+                        *
+                        * @param <param> - Description of the parameter
+                        * @returns Description of what the function returns
+                        */`),
     python: [
         {
             name: 'Module',
-            docstring: `"""Description of the module.
+            docstring: dedent(`"""Description of the module.
 
-Classes:
-    <class>
+                               Classes:
+                                   <class>
 
-Functions:
-    <function>
+                               Functions:
+                                   <function>
 
-Misc. variables:
-    <variable>
-"""`,
+                               Misc. variables:
+                                   <variable>
+                               """`),
         },
         {
             name: 'Class',
-            docstring: `"""Description of the class.
+            docstring: dedent(`"""Description of the class.
 
-Args:
-    <arg> (<type>): Description of the arg.
+                               Args:
+                                   <arg> (<type>): Description of the arg.
 
-Variables:
-    <variable> (<type>): Description of the variable.
-"""`,
+                               Variables:
+                                   <variable> (<type>): Description of the variable.
+                               """`),
         },
         {
             name: 'Function',
-            docstring: `"""Description of the function.
+            docstring: dedent(`"""Description of the function.
 
-Parameters:
-    <param>: Description of the parameter
+                               Parameters:
+                                   <param>: Description of the parameter
 
-Returns:
-    <variable>: Description of the return value
-"""`,
+                               Returns:
+                                   <variable>: Description of the return value
+                               """`),
         },
     ],
 };
